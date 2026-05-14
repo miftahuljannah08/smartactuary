@@ -43,7 +43,7 @@ h1, h2, h3 {
 }
 
 .card {
-    background-color: white;
+    background-color: blue;
     padding: 20px;
     border-radius: 18px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -57,11 +57,10 @@ h1, h2, h3 {
 # =========================
 # SIDEBAR
 # =========================
-st.sidebar.title("🧮 SmartActuary")
+st.sidebar.title("SmartActuary")
 st.sidebar.write("Portal Simulasi Premi")
 
 menu = st.sidebar.radio(
-    "Navigasi",
     ["Dashboard", "Simulasi Premi", "Tentang"]
 )
 
@@ -70,7 +69,7 @@ menu = st.sidebar.radio(
 # =========================
 if menu == "Dashboard":
 
-    st.title("🧮 SMARTACTUARY PORTAL")
+    st.title("SMARTACTUARY PORTAL")
     st.subheader("Simulasi Premi Asuransi Modern")
 
     st.markdown("""
