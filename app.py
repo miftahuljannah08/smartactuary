@@ -23,14 +23,6 @@ if menu == "Dashboard":
 
     st.subheader("Dashboard Simulasi Premi Asuransi")
 
-    col1, col2, col3 = st.columns(3)
-
-    col1.metric("Metode", "Anuitas")
-    col2.metric("Status", "Aktif")
-    col3.metric("Versi", "1.0")
-
-    st.markdown("---")
-
     st.info("""
     SmartActuary merupakan portal simulasi premi
     asuransi berbasis Python dan Streamlit.
