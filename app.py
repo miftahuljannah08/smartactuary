@@ -61,6 +61,7 @@ st.sidebar.title("SmartActuary")
 st.sidebar.write("Portal Simulasi Premi")
 
 menu = st.sidebar.radio(
+    "Navigasi",
     ["Dashboard", "Simulasi Premi", "Tentang"]
 )
 
