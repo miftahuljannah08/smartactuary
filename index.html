@@ -1,106 +1,185 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="id">
 <head>
-  <title>Smart Actuary</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Sahabatku</title>
 
-  <link rel="stylesheet" href="style.css">
+  <style>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      background: linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    .container{
+      background:white;
+      width:90%;
+      max-width:500px;
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      animation:fadeIn 1.5s ease;
+      position:relative;
+      z-index:2;
+    }
+
+    h1{
+      color:#ff4d6d;
+      margin-bottom:15px;
+      font-size:38px;
+    }
+
+    p{
+      color:#444;
+      font-size:18px;
+      line-height:1.7;
+      margin-bottom:25px;
+    }
+
+    button{
+      background:#ff4d6d;
+      color:white;
+      border:none;
+      padding:15px 30px;
+      border-radius:50px;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:#e63956;
+    }
+
+    .hidden-message{
+      display:none;
+      margin-top:30px;
+      animation:fadeIn 1s ease;
+    }
+
+    .gift{
+      font-size:80px;
+      margin-bottom:15px;
+      animation:bounce 2s infinite;
+    }
+
+    .heart{
+      position:absolute;
+      color:white;
+      font-size:20px;
+      animation:float 5s linear infinite;
+      opacity:0.7;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes bounce{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-10px);
+      }
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(100vh) scale(0.5);
+      }
+      100%{
+        transform:translateY(-10vh) scale(1);
+      }
+    }
+
+  </style>
 </head>
-
 <body>
 
-<div class="dashboard">
+  <div class="container">
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
+    <h1>Hai Aniikuuu 💖</h1>
 
-    <h2>Smart Actuary</h2>
+    <p>
+      Aku cuma mau bilang...
+      makasih ya udah selalu ada.
+      Semoga hari-harimu selalu bahagia 🌸
+    </p>
 
-    <button onclick="showMenu('majemuk')">
-      📈 Bunga Majemuk
+    <button onclick="showSurprise()">
+      Klik untuk Surprise 🎁
     </button>
 
-    <button onclick="showMenu('sederhana')">
-      💰 Bunga Sederhana
-    </button>
+    <div class="hidden-message" id="surprise">
 
-    <button onclick="showMenu('anuitas')">
-      🏦 Anuitas
-    </button>
+      <div class="gift">🎁</div>
 
-  </div>
+      <h2>Kamu Berharga Banget 💕</h2>
 
-  <!-- CONTENT -->
-  <div class="content">
+      <p>
+        Jangan capek jadi orang baik ya.
+        Semoga semua hal baik selalu datang ke hidupmu💕 ✨
+      </p>
 
-    <!-- BUNGA MAJEMUK -->
-    <div id="majemuk" class="menu">
-
-      <h1>Bunga Majemuk</h1>
-
-      <label>Modal Awal</label>
-      <input type="number" id="modal">
-
-      <label>Bunga (%)</label>
-      <input type="number" id="bunga">
-
-      <label>Lama Investasi (tahun)</label>
-      <input type="number" id="tahun">
-
-      <button onclick="hitung()">
-        Hitung Investasi
-      </button>
-
-      <div class="hasil">
-        <h2 id="hasil"></h2>
-        <p id="profit"></p>
-      </div>
-
-      <canvas id="grafik"></canvas>
-
-    </div>
-
-    <!-- BUNGA SEDERHANA -->
-    <div id="sederhana" class="menu hidden">
-
-  <h1>Bunga Sederhana</h1>
-
-  <label>Modal Awal</label>
-  <input type="number" id="modalSimple">
-
-  <label>Bunga (%)</label>
-  <input type="number" id="bungaSimple">
-
-  <label>Lama Investasi (tahun)</label>
-  <input type="number" id="tahunSimple">
-
-  <button onclick="hitungSimple()">
-    Hitung Bunga Sederhana
-  </button>
-
-  <div class="hasil">
-    <h2 id="hasilSimple"></h2>
-    <p id="profitSimple"></p>
-  </div>
-
-</div>
-
-    <!-- ANUITAS -->
-    <div id="anuitas" class="menu hidden">
-
-      <h1>Anuitas</h1>
-
-      <p>Fitur akan dibuat berikutnya 😎</p>
+      <h1>💖</h1>
 
     </div>
 
   </div>
 
-</div>
 
-<script src="script.js"></script>
+  <script>
+
+    function showSurprise(){
+      document.getElementById("surprise").style.display = "block";
+    }
+
+
+    // Efek hati beterbangan
+    function createHeart(){
+
+      const heart = document.createElement("div");
+
+      heart.classList.add("heart");
+
+      heart.innerHTML = "💖";
+
+      heart.style.left = Math.random() * 100 + "vw";
+
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(()=>{
+        heart.remove();
+      },5000);
+    }
+
+    setInterval(createHeart,300);
+
+  </script>
 
 </body>
 </html>
