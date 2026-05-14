@@ -84,14 +84,6 @@ if menu == "Dashboard":
     </div>
     """, unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns(3)
-
-    col1.metric("Metode", "Anuitas")
-    col2.metric("Status Sistem", "Aktif")
-    col3.metric("Versi", "2.0")
-
-    st.markdown("---")
-
     st.write("### ✨ Fitur Utama")
 
     fitur1, fitur2, fitur3 = st.columns(3)
