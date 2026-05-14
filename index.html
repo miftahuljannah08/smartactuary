@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Smart Actuary</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <h2>Smart Actuary</h2>
+
+    <button onclick="showMenu('majemuk')">
+      📈 Bunga Majemuk
+    </button>
+
+    <button onclick="showMenu('sederhana')">
+      💰 Bunga Sederhana
+    </button>
+
+    <button onclick="showMenu('anuitas')">
+      🏦 Anuitas
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- BUNGA MAJEMUK -->
+    <div id="majemuk" class="menu">
+
+      <h1>Bunga Majemuk</h1>
+
+      <label>Modal Awal</label>
+      <input type="number" id="modal">
+
+      <label>Bunga (%)</label>
+      <input type="number" id="bunga">
+
+      <label>Lama Investasi (tahun)</label>
+      <input type="number" id="tahun">
+
+      <button onclick="hitung()">
+        Hitung Investasi
+      </button>
+
+      <div class="hasil">
+        <h2 id="hasil"></h2>
+        <p id="profit"></p>
+      </div>
+
+      <canvas id="grafik"></canvas>
+
+    </div>
+
+    <!-- BUNGA SEDERHANA -->
+    <div id="sederhana" class="menu hidden">
+
+  <h1>Bunga Sederhana</h1>
+
+  <label>Modal Awal</label>
+  <input type="number" id="modalSimple">
+
+  <label>Bunga (%)</label>
+  <input type="number" id="bungaSimple">
+
+  <label>Lama Investasi (tahun)</label>
+  <input type="number" id="tahunSimple">
+
+  <button onclick="hitungSimple()">
+    Hitung Bunga Sederhana
+  </button>
+
+  <div class="hasil">
+    <h2 id="hasilSimple"></h2>
+    <p id="profitSimple"></p>
+  </div>
+
+</div>
+
+    <!-- ANUITAS -->
+    <div id="anuitas" class="menu hidden">
+
+      <h1>Anuitas</h1>
+
+      <p>Fitur akan dibuat berikutnya 😎</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
